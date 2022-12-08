@@ -10,6 +10,8 @@ COPY config_files/fluent-bit.conf  /etc/fluent-bit/fluent-bit.conf
 RUN mkdir /var/log/named
 
 COPY config_files /etc/bind
+COPY config_files/fluentd /etc/fluent-bit/
+COPY fluent_bit_plugins/out_newrelic-linux-amd64-1.14.1.so /usr/lib
 
 EXPOSE 53/tcp
 EXPOSE 53/udp
